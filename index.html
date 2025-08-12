@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-  <title>我的測試網站</title>
+<meta charset="UTF-8">
+<title>LPA eSIM 測試</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+a {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: blue;
+}
+</style>
 </head>
 <body>
-  <a href="LPA:1$sm-v4-099-a-gtm.pr.go-esim.com$D336A0560A9B87861A177E01826724D">點我加入 eSIM
-  </a>
 
-  <img src="250706103745.jpg" alt="我的測試圖片" width="300" height="300">
-  
+<h1>📱 LPA eSIM 測試頁</h1>
+<p>輸入你的 <strong>LPA URI</strong>，然後點擊按鈕測試。</p>
+
+<input type="text" id="lpaUri" placeholder="例如：lpa:1$sm-v4-xxx.go-esim.com$ACTIVATIONCODE">
+<button onclick="generateLink()">生成測試連結</button>
+
+<div id="linkArea"></div>
+
+<script>
+function generateLink() {
+    const uri = document.getElementById('lpaUri').value.trim();
+    if (!uri.startsWith('lpa:')) {
+        alert('請輸入正確的 LPA URI（必須以 lpa: 開頭）');
+        return;
+    }
+    const linkArea = document.getElementById('linkArea');
+    linkArea.innerHTML = `<a href="${uri}">👉 點我安裝 eSIM</a>`;
+}
+</script>
+
 </body>
 </html>
+
